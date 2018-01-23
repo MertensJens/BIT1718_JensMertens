@@ -1,0 +1,40 @@
+Give the name en lenght of the smallest gene in the genome.
+	mysql> SELECT gene_name, gene.seq_region_end-gene.seq_region_start as length FROM gene ORDER BY length limit 1;
++-----------+--------+
+| gene_name | length |
++-----------+--------+
+| TRDD1     |      7 |
++-----------+--------+
+
+
+What is the name of the gene with the most transcripts? what is the number of transcipts of this gene? 
+
+	mysql> SELECT gene_name, count(transcript_id) as c FROM gene, transcript WHERE gene.gene_id=transcript.gene_id GROUP BY gene_name ORDER BY c desc limit 1;
++-----------+------+
+| gene_name | c    |
++-----------+------+
+| U6        | 1329 |
++-----------+------+
+
+
+Give the name of the chromosome with the second most genes that tell someting about cancer. what is the number of exons of this chromosome? 
+	mysql> select chromosome, count(chromosome) as c  from gene where description LIKE "%cancer%" group by chromosome order by c desc;
+
++------------+----+
+| chromosome | c  |		Chromosoon 9 heeft de 2de meeste genen die iets vertellen over kanker. 
++------------+----+
+| X          | 23 |
+| 9          |  5 |
+							
+							
+							
+Give the number of rows from the exon table and do the same for the exon_transcript table. Explain why there is a difference. 
+
+	mysql > select * from exon;
+	642590 rows in set
+
+	mysql> select * from exon_transcript
+	1178393 rows in set
+	
+	2 of meerdere verschillende exonen kunnen eenzelfde transcriptie hebben, maar op een andere plaats in het genoom liggen en dus een ander 
+	

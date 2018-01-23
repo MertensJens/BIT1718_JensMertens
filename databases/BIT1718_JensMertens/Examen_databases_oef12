@@ -1,0 +1,4 @@
+use Ensembl, Ensembl REST API, describe the steps you habe carried out and give the curl request and the answers to the following question. 
+
+curl http://rest.ensembl.org/archive/id/content-type=application/json/rs4224828
+

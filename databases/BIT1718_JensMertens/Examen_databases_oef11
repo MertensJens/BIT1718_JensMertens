@@ -1,0 +1,8 @@
+Give the number of medicines taken with a lozenge
+
+
+
+give the number of medicines that have side effect in more the 12% of cases
+	db.bioinf_mongo_examen.count({percentage_of_side_effects: {$gt: 12}})
+	12
+
