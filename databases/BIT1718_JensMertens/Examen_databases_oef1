@@ -1,0 +1,12 @@
+0NF => DB(Personnel number, name, Date of birth, lab code, lab name, research code, research description, research supervisor)
+alle data staat in 1 tabel
+
+1NF => DB(<u>Personnel number</u>, name, Date of birth, lab code, lab name, <u>research code, research description, research supervisor</u>)
+alle herhaalde data wordt geëlimineerd en onder 1 tabel ondergebracht
+
+2NF => DB(Personnel number, research code, research description)
+			( Name, date of birth)
+			(lab code, lab name, research supervisor)
+personnel number wordt gelinkt met name en date of birth
+research code wordt gelinkt met lab code, lab name en research supervisor. 
+ 
